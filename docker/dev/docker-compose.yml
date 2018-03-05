@@ -1,0 +1,13 @@
+version: "2"
+services:
+  catalog:
+    build:
+      context: ../../
+      dockerfile: productcatalogue/Dockerfile
+    image: ayoubensalem/spring:catalog
+    volumes:
+      - mvn-repo:/home/test/.m2
+      - YOUR_APP_TARGET_FOLDER:/app/target
+
+volumes:
+  mvn-repo:

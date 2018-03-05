@@ -1,0 +1,17 @@
+version: "2"
+services:
+  catalog:
+    build:
+      context: YOUR_CONTEXT
+      dockerfile: DOCKERFILE
+    image: IMAGE_NAME
+    volumes: 
+      - mvn-repo:/home/test/.m2
+      - ./settings.xml:/opt/apache-maven-${MAVEN_VERSION}/conf/settings.xml
+    command: mvn surefire-report:report
+
+volumes:
+  mvn-repo:
+
+
+

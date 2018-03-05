@@ -1,0 +1,5 @@
+.*
+docker
+*.md
+docker-compose.yml
+target/*

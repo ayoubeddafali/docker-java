@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  shopfront:
+    build:
+      context: CONTEXT
+      dockerfile: RELEASE Dockerfile
+    image: RELEASE_IMAGE
+    links:
+      - something
+      - something2
+    ports:
+      - ""
+    networks:
+      - appnet
+
+
+networks:
+  appnet:

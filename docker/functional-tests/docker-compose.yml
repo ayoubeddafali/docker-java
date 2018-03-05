@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: IMAGE_NAME:functional
+    links:
+      - shopfront
+    volumes:
+      - ./target:/app/target
+      - mvn-repo:/home/test/.m2
+    command: ["./wait-for-it.sh", "localhost", "--", "mvn", "test"]
+    networks:
+      - appnet
+
+networks:
+  appnet:
+volumes:
+  mvn-repo:
